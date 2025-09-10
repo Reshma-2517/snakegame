@@ -37,16 +37,17 @@ while game_status_on:
 
     #detect collision with wall
     if (snake.all_segments[0].xcor() > 290) or (snake.all_segments[0].xcor() < -300) or (snake.all_segments[0].ycor() > 300) or (snake.all_segments[0].ycor() < -290):
-        game_status_on = False
-        score.game_over()
+         score.restart()
+         snake.reset_snake()
+        
        
 
     #detect collision with tail
     for segment in snake.all_segments[1:]:
             if snake.all_segments[0].distance(segment) < 1:
-                game_status_on = False
-                score.game_over()
-
+                 score.restart()
+                 snake.reset_snake()
+                
         
         
 
